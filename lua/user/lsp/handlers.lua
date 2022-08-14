@@ -5,6 +5,11 @@ if not status_cmp_ok then
   return
 end
 
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+  return
+end
+
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
@@ -52,23 +57,51 @@ M.setup = function()
 end
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-  keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
-  keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-  keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-  keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-  keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  local optsG = {
+    mode = "n", -- NORMAL mode
+    prefix = "g",
+    buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  }
+
+  local mappingsG = {
+    ["D"] = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to Declaration"},
+    ["d"] = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Go to Definition"},
+    ["K"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Display Hover Info"},
+    ["I"] = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "List Implementations"},
+    ["r"] = {"<cmd>lua vim.lsp.buf.references()<CR>", "List References"},
+    ["l"] = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Show Diagnostics"},
+  }
+
+  local optsL = {
+    mode = "n", -- NORMAL mode
+    prefix = "<leader>",
+    buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  }
+
+  local mappingsL = {
+    l = {
+      name = "LSP",
+      f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
+      i = {"<cmd>LspInfo<cr>", "Info"},
+      I = {"<cmd>LspInstallInfo<cr>", "Install Info"},
+      a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
+      j = {"<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", "Next Diagnostic"},
+      k = {"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Prev Diagnostic"},
+      r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+      s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
+      q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix"},
+    }
+  }
+
+  which_key.register(mappingsG, optsG)
+  which_key.register(mappingsL, optsL)
+
 end
 
 M.on_attach = function(client, bufnr)
