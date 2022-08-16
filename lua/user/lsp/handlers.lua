@@ -88,13 +88,12 @@ local function lsp_keymaps(bufnr)
     l = {
       name = "LSP",
       f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
-      i = {"<cmd>LspInfo<cr>", "Info"},
-      I = {"<cmd>LspInstallInfo<cr>", "Install Info"},
       a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
       j = {"<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", "Next Diagnostic"},
       k = {"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Prev Diagnostic"},
       r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
       s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
+      S = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
       q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix"},
     }
   }
