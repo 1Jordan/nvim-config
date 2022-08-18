@@ -80,7 +80,7 @@ return packer.startup(function(use)
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 
   -- Which Key
-  use { "folke/which-key.nvim" }
+  use { "folke/which-key.nvim", commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71" }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", tag = "0.1.0" }
@@ -90,6 +90,9 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     commit = "518e27589c0463af15463c9d675c65e464efc2fe",
   }
+
+  -- Leap
+  use { "ggandor/leap.nvim", commit = "e4290dd002060d1bd00ec32cfb0bc4e78cdddd76" }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
