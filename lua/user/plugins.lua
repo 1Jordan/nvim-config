@@ -94,6 +94,9 @@ return packer.startup(function(use)
   -- Leap
   use { "ggandor/leap.nvim", commit = "e4290dd002060d1bd00ec32cfb0bc4e78cdddd76" }
 
+  -- Surround
+  use { "kylechui/nvim-surround", tag = "*" }
+
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
 
