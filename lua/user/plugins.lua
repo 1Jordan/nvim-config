@@ -82,6 +82,9 @@ return packer.startup(function(use)
   -- Markdown/Latex Previewer
   use {  "frabjous/knap", commit = "4c472163b3134a7260e1105571021f7b9ba4ed41" }
 
+  -- Remote containers
+  use { "jamestthompson3/nvim-remote-containers", commit = "d635bea9c24be1656c7e16e4b46ecb39b4b70093" }
+
   -- Which Key
   use { "folke/which-key.nvim", commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71" }
 
