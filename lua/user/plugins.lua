@@ -79,6 +79,9 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 
+  -- Markdown/Latex Previewer
+  use {  "frabjous/knap", commit = "4c472163b3134a7260e1105571021f7b9ba4ed41" }
+
   -- Which Key
   use { "folke/which-key.nvim", commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71" }
 
