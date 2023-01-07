@@ -92,9 +92,7 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope.nvim", tag = "0.1.0" }
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-  }
+  use { "nvim-treesitter/nvim-treesitter" }
 
   -- Leap
   use { "ggandor/leap.nvim" }
