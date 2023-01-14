@@ -3,12 +3,12 @@ local servers = {
 	"cssls",
 	"html",
 	"tsserver",
-  "pylsp",
-  "clangd",
+	"pylsp",
+	"clangd",
 	"bashls",
 	"jsonls",
 	"yamlls",
-  "dockerls"
+	"dockerls",
 }
 
 local settings = {
@@ -49,40 +49,6 @@ for _, server in pairs(servers) do
 	if require_ok then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
-
-  -- if server == "clangd" then
-  --   opts = {
-  --     on_attach = require("user.lsp.handlers").on_attach,
-  --     capabilities = require("user.lsp.handlers").capabilities,
-  --     cmd = lspcontainers.command('clangd')
-  --   }
-  -- end
-
-  -- if server == "pyright" then
-  --   opts = {
-  --     on_attach = require("user.lsp.handlers").on_attach,
-  --     capabilities = require("user.lsp.handlers").capabilities,
-  --     before_init = function(params)
-  --       params.processId = vim.NIL
-  --     end,
-  --     root_dir = require'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
-  --     cmd = lspcontainers.command('pyright', {
-  --       image = "dev_image_lsp:foxy",
-  --       cmd = function (runtime, volume, image)
-  --       return {
-  --           runtime,
-  --           "container",
-  --           "run",
-  --           "--interactive",
-  --           "--rm",
-  --           "--volume",
-  --           volume,
-  --           image,
-  --         }
-  --       end,
-  --     })
-  --   }
-  -- end
 
 	lspconfig[server].setup(opts)
 end
