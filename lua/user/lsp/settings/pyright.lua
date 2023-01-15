@@ -37,20 +37,17 @@ local ros_development = {
 }
 
 local normal = {
-  settings = settings
+  settings = settings,
 }
 
 local function startswith(text, prefix)
-    return text:find(prefix, 1, true) == 1
+  return text:find(prefix, 1, true) == 1
 end
 
 local path = vim.api.nvim_buf_get_name(0)
-
 
 if startswith(path, ros_project) then
   return ros_development
 else
   return normal
 end
-
-
