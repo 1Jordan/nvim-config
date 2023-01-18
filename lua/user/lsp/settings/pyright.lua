@@ -44,9 +44,10 @@ local function startswith(text, prefix)
   return text:find(prefix, 1, true) == 1
 end
 
-local path = vim.fn.getcwd()
+local path_vim = vim.fn.getcwd()
+local path_buf = vim.api.nvim_buf_get_name(0)
 
-if startswith(path, ros_project) then
+if startswith(path_vim, ros_project) or startswith(path_buf, ros_project) then
   return ros_development
 else
   return normal
