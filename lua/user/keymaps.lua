@@ -42,7 +42,7 @@ keymap("v", "p", '"_dP', opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -69,7 +69,10 @@ which_key.register({
       r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl toggle" },
       l = { "<cmd>lua require'dap'.run_last()<cr>", "Run last" },
       u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
-      t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" }
-    }
-  }
-})
+      t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
+    },
+    l = {
+      f = { "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format" },
+    },
+  },
+}, opts)
