@@ -83,18 +83,9 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
   use { "RRethy/vim-illuminate" }
   use { "lspcontainers/lspcontainers.nvim" }
-  use {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  }
-  use {
-    "smjonas/inc-rename.nvim",
-    config = function()
-      require("inc_rename").setup()
-    end,
-  }
+  use { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }
+  use { "smjonas/inc-rename.nvim" }
+
   -- Markdown/Latex Previewer
   use { "frabjous/knap" }
 
@@ -114,7 +105,10 @@ return packer.startup(function(use)
   use { "ggandor/leap.nvim" }
 
   -- Surround
-  use { "kylechui/nvim-surround", tag = "*" }
+  use {
+    "kylechui/nvim-surround",
+    tag = "*",
+  }
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
@@ -126,6 +120,10 @@ return packer.startup(function(use)
 
   use { "shortcuts/no-neck-pain.nvim", tag = "*" }
 
+  use {
+    "uloco/bluloco.nvim",
+    requires = { "rktjmp/lush.nvim" },
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

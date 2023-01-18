@@ -3,4 +3,4 @@ if not status_ok then
   return
 end
 
-nvim_surround.setup({})
+nvim_surround.setup {}
