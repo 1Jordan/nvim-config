@@ -8,7 +8,7 @@ require("bluloco").setup({
   terminal = vim.fn.has("gui_running") == 1 -- bluoco colors are enabled in gui terminals per default.
 })
 
-vim.cmd('colorscheme bluloco')
+vim.cmd('colorscheme bluloco-dark')
 local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
 if not status_ok then
   return
