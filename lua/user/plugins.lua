@@ -61,8 +61,7 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim" }
 
   -- Colorschemes
-  use { "folke/tokyonight.nvim" }
-  use { "lunarvim/darkplus.nvim" }
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" } -- The completion plugin
@@ -120,10 +119,9 @@ return packer.startup(function(use)
 
   use { "shortcuts/no-neck-pain.nvim", tag = "*" }
 
-  use {
-    "uloco/bluloco.nvim",
-    requires = { "rktjmp/lush.nvim" },
-  }
+
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
