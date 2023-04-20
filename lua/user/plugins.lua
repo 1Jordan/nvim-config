@@ -116,13 +116,8 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-  use {
-    "akinsho/git-conflict.nvim",
-    tag = "*",
-    config = function()
-      require("git-conflict").setup()
-    end,
-  }
+  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
+
   -- DAP
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui" }
