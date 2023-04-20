@@ -57,7 +57,12 @@ return packer.startup(function(use)
   use { "akinsho/toggleterm.nvim" }
   use { "ahmedkhalf/project.nvim" }
   use { "lewis6991/impatient.nvim" }
-  use { "lukas-reineke/indent-blankline.nvim" }
+  use {
+    "echasnovski/mini.indentscope",
+    config = function()
+      require("mini.indentscope").setup()
+    end,
+  }
   use { "goolord/alpha-nvim" }
 
   -- Colorschemes
@@ -111,16 +116,19 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-
+  use {
+    "akinsho/git-conflict.nvim",
+    tag = "*",
+    config = function()
+      require("git-conflict").setup()
+    end,
+  }
   -- DAP
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui" }
   use { "ravenxrz/DAPInstall.nvim" }
 
   use { "shortcuts/no-neck-pain.nvim", tag = "*" }
-
-
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
