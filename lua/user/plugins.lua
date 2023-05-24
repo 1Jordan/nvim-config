@@ -24,6 +24,6 @@ vim.g.mapleader = " "
 -- Install your plugins here
 lazy.setup("plugins", {
   defaults = {
-    lazy = true
+    lazy = false
   }
 })

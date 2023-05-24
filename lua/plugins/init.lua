@@ -11,7 +11,6 @@ return {
   "nvim-lualine/lualine.nvim",
   "akinsho/toggleterm.nvim",
   "ahmedkhalf/project.nvim",
-  "lewis6991/impatient.nvim",
   {
     "echasnovski/mini.indentscope",
     config = function()
@@ -74,6 +73,4 @@ return {
   "mfussenegger/nvim-dap",
   "rcarriga/nvim-dap-ui",
   "ravenxrz/DAPInstall.nvim",
-
-  "shortcuts/no-neck-pain.nvim",
 }
