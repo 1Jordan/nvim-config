@@ -22,4 +22,8 @@ end
 vim.g.mapleader = " "
 
 -- Install your plugins here
-lazy.setup("plugins")
+lazy.setup("plugins", {
+  defaults = {
+    lazy = true
+  }
+})
