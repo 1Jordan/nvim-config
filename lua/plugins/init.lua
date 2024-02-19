@@ -3,7 +3,6 @@ return {
   "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
   "numToStr/Comment.nvim",
-  "JoosepAlviste/nvim-ts-context-commentstring",
   "akinsho/bufferline.nvim",
   "moll/vim-bbye",
   "RRethy/vim-illuminate",
