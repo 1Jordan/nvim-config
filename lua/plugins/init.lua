@@ -4,13 +4,20 @@ return {
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
   "numToStr/Comment.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
-  "kyazdani42/nvim-web-devicons",
-  "kyazdani42/nvim-tree.lua",
   "akinsho/bufferline.nvim",
   "moll/vim-bbye",
+  "RRethy/vim-illuminate",
   "nvim-lualine/lualine.nvim",
   "akinsho/toggleterm.nvim",
   "ahmedkhalf/project.nvim",
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
   {
     "echasnovski/mini.indentscope",
     config = function()
@@ -39,9 +46,7 @@ return {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
-  "RRethy/vim-illuminate",
   "lspcontainers/lspcontainers.nvim",
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   "smjonas/inc-rename.nvim",
 
   -- Markdown/Latex Previewer
@@ -57,7 +62,10 @@ return {
   { "nvim-telescope/telescope.nvim", tag = "0.1.0" },
 
   -- Treesitter
-  "nvim-treesitter/nvim-treesitter",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate"
+  },
 
   -- Leap
   "ggandor/leap.nvim",
